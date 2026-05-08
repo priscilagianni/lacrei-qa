@@ -1,2 +1,2 @@
 // Support file do Cypress
-import './commands';
+require('./commands');
