@@ -1,5 +1,4 @@
-# language: pt
-
+Set-Content -Path "cypress\e2e\cadastro.feature" -Encoding UTF8 -Value @"
 Feature: Cadastro de pessoa usuária (automatizado)
   Como uma pessoa usuária nova
   Quero me cadastrar na plataforma Lacrei Saúde
@@ -24,4 +23,4 @@ Feature: Cadastro de pessoa usuária (automatizado)
   Scenario: Cadastro com campos obrigatórios em branco
     Given que estou na página de cadastro
     When deixo todos os campos em branco
-    Then o botão "Cadastrar" deve estar desabilitado
+    Then o botão "Cadastrar" deve estar desabilitado.
