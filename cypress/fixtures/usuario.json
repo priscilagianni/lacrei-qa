@@ -1,0 +1,15 @@
+{
+  "usuario_valido": {
+    "nome": "jonino Silva",
+    "email": "jonino8133@anawebs.com",
+    "senha": "Teste@1234"
+  },
+  "usuario_email_invalido": {
+    "email": "emailinvalido"
+  },
+  "usuario_email_nao_cadastrado": {
+    "email": "naocadastrado@teste.com"
+  },
+  "senha_fraca": "123456",
+  "nova_senha": "NovaSenha@456"
+}

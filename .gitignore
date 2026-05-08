@@ -1,0 +1,18 @@
+# Dependências
+node_modules/
+
+# Variáveis de ambiente (nunca commitar)
+.env
+.env.local
+
+# Artefatos do Cypress (gerados em CI)
+cypress/screenshots/
+cypress/videos/
+
+# Relatórios gerados pelo Lighthouse
+docs/acessibilidade/*.html
+docs/desempenho/*.html
+
+# Sistema operacional
+.DS_Store
+Thumbs.db

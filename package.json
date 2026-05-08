@@ -1,0 +1,22 @@
+{
+  "name": "lacrei-qa",
+  "version": "1.0.0",
+  "description": "Repositório de testes QA — Lacrei Saúde (desafio técnico)",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:run:cadastro": "cypress run --spec cypress/e2e/cadastro.feature",
+    "cypress:run:headless": "cypress run --headless --browser chrome",
+    "k6:run": "k6 run docs/desempenho/load-test.js"
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.0.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.0.0",
+    "cypress": "^13.0.0",
+    "esbuild": "^0.20.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/support/step_definitions/**/*.js"
+  }
+}
