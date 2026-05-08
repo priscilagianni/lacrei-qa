@@ -1,4 +1,4 @@
-Set-Content -Path "cypress\e2e\cadastro.feature" -Encoding UTF8 -Value @"
+
 Feature: Cadastro de pessoa usuária (automatizado)
   Como uma pessoa usuária nova
   Quero me cadastrar na plataforma Lacrei Saúde

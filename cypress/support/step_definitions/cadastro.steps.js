@@ -1,43 +1,39 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 
-// ─── Navegação ────────────────────────────────────────────────────────────────
-
 Given('que estou na página de cadastro', () => {
   cy.visit('/saude/paciente/cadastrar/');
   cy.get('body').should('be.visible');
 });
 
-// ─── Ações ────────────────────────────────────────────────────────────────────
-
 When('preencho o campo {string} com {string}', (campo, valor) => {
-  // Tenta localizar por data-testid, name ou placeholder (nessa ordem)
-  cy.get(
-    `[data-testid="${campo}"], [name="${campo}"], input[placeholder*="${campo}" i]`
-  )
-    .first()
-    .clear()
-    .type(valor);
+  const mapa = {
+    'nome': '[name="firstName"],[name="name"],[name="fullName"],[placeholder*="nome" i]',
+    'email': '[name="email"],[type="email"]:first',
+    'confirmar email': '[name="confirmEmail"],[name="emailConfirmation"],[type="email"]:last',
+    'senha': '[name="password"],[type="password"]:first',
+    'confirmar senha': '[name="confirmPassword"],[name="passwordConfirmation"],[type="password"]:last',
+  };
+  const seletor = mapa[campo.toLowerCase()] || `[name="${campo}"]`;
+  cy.get(seletor).first().clear().type(valor);
 });
 
 When('aceito os termos de uso', () => {
-  cy.get('input[type="checkbox"]').first().check({ force: true });
+  cy.get('input[type="checkbox"]').each(($checkbox) => {
+    cy.wrap($checkbox).check({ force: true });
+  });
 });
 
 When('clico em {string}', (texto) => {
-  cy.contains('button', texto).click();
+  cy.contains('button', texto).click({ force: true });
 });
 
 When('deixo todos os campos em branco', () => {
-  // Não preenche nada — apenas garante que os campos estão vazios
-  cy.get('input').each(($input) => {
+  cy.get('input[type="text"], input[type="email"], input[type="password"]').each(($input) => {
     cy.wrap($input).clear();
   });
 });
 
-// ─── Asserções ────────────────────────────────────────────────────────────────
-
 Then('devo ver a página de pós-cadastro', () => {
-  // Ajustar a URL ou seletor conforme o comportamento real da aplicação
   cy.url().should('include', '/pos-cadastro');
 });
 
