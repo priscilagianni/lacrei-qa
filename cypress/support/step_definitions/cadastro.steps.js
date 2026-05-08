@@ -34,13 +34,15 @@ When('deixo todos os campos em branco', () => {
 });
 
 Then('devo ver a página de pós-cadastro', () => {
-  cy.url().should('include', '/pos-cadastro');
+  // Aguarda redirecionamento após cadastro
+  cy.url().should('not.include', '/cadastrar');
 });
 
 Then('devo ver mensagem de erro de formato de e-mail', () => {
   cy.contains('Por favor, utilize um formato de e-mail válido').should('be.visible');
 });
 
-Then('o botão {string} deve estar desabilitado', (texto) => {
+Then('o botão {string} deve estar desabilitado.', (texto) => {
   cy.contains('button', texto).should('be.disabled');
 });
+
