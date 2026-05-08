@@ -3,7 +3,7 @@ import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 // ─── Navegação ────────────────────────────────────────────────────────────────
 
 Given('que estou na página de cadastro', () => {
-  cy.visit('/cadastro');
+  cy.visit('/saude/paciente/cadastrar/');
   cy.get('body').should('be.visible');
 });
 
