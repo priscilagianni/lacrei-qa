@@ -6,7 +6,6 @@ Given('que estou na pagina de cadastro', () => {
 });
 
 When('preencho o campo de email com {string}', (valor) => {
-  // Preenche todos os campos obrigatórios para habilitar o botão
   const timestamp = Date.now();
   cy.get('input[name="firstName"]').clear().type('Maria Teste');
   cy.get('input[name="lastName"]').clear().type('Automatizado');
@@ -19,7 +18,7 @@ When('preencho o campo de email com {string}', (valor) => {
 });
 
 When('nao preencho nenhum campo', () => {
-  // Não faz nada — verifica estado inicial
+  // Verifica o estado inicial do formulário
 });
 
 When('preencho o formulario completo com dados validos', () => {
