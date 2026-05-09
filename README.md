@@ -12,11 +12,12 @@ Este projeto segue uma divisão profissional de QA entre três camadas:
 
 Utilizada como base principal de documentação estruturada.
 
+O padrão interno para identificação de casos de teste é **CT**, não TC.
+
 Contém:
 
 - Casos de teste em Gherkin
 - Estratégia de testes
-- Critérios de aceite
 - Relatórios técnicos (performance, acessibilidade, etc.)
 - Padrões de automação
 
@@ -51,18 +52,30 @@ lacrei-qa/
 │       └── cypress.yml
 ├── cypress/
 │   ├── e2e/
-│   ├── support/
-│   └── fixtures/
+│   │   └── cadastro.feature
+│   ├── fixtures/
+│   │   └── usuario.json
+│   └── support/
+│       ├── commands.js
+│       └── step_definitions/
+│           └── cadastro.steps.js
 ├── docs/
-│   ├── casos-de-teste/
-│   ├── bugs/
 │   ├── acessibilidade/
+│   │   └── relatorio-acessibilidade.md
+│   ├── casos-de-teste/
+│   │   ├── busca-profissional.feature
+│   │   ├── cadastro.feature
+│   │   └── recuperacao-senha.feature
 │   ├── desempenho/
+│   │   ├── load-test.js
+│   │   └── relatorio-desempenho.md
 │   └── responsividade/
+│       └── relatorio-responsividade.md
 ├── .env.example
 ├── .gitignore
 ├── cypress.config.js
 ├── package.json
+├── package-lock.json
 └── README.md
 ```
 
@@ -86,7 +99,7 @@ O guia de execução também está disponível no [GitHub Wiki](https://github.c
 
 | Local | Finalidade |
 |-------|-----------|
-| [GitHub Wiki](https://github.com/priscilagianni/lacrei-qa/wiki) | Documentação técnica oficial do projeto, incluindo casos de teste e critérios de aceite |
+| [GitHub Wiki](https://github.com/priscilagianni/lacrei-qa/wiki) | Documentação técnica oficial do projeto, incluindo casos de teste |
 | [GitHub Issues](https://github.com/priscilagianni/lacrei-qa/issues) | Registro e acompanhamento de bugs |
 | [Notion](https://www.notion.so/Lacrei-Sa-de-QA-35afa24bd77b80128fc8f76fd51a7967?source=copy_link) | Gestão visual de QA (bugs, status e evidências) |
 | /docs | Relatórios técnicos versionados no repositório |
@@ -110,4 +123,4 @@ O guia de execução também está disponível no [GitHub Wiki](https://github.c
 | k6 | Teste de carga |
 | Notion | Gestão de QA |
 | GitHub Wiki | Documentação técnica |
-| GitHub Issues | Tracking de bugs |
+| GitHub Issues | Rastreamento de bugs |
